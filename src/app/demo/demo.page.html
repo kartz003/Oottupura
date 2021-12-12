@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary">
+  <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+
+  <!-- <h3 style="padding-left: 2%; color: black;">₹1.00</h3>
+  <p style="padding-left: 2%; text-align: left;">Razorpay provides an end-to-end online payments solution. We accept and validate Internet payments via Credit Card, Debit Card, Net-Banking, UPI and popular Wallets from the end customers in real-time.  </p>
+  <ion-button style="padding-left: 2%;" (click)="payWithRazorpay()">Pay With Razorpay</ion-button> -->
+  <ion-card (click)="viewfood('Breakfast')">
+    <img src="../assets/img/breakfast1.jpeg">
+    <ion-card-header>
+    <ion-card-title>Breakfast</ion-card-title>
+  </ion-card-header>
+  </ion-card>
+  <ion-card (click)="viewfood('Lunch')">
+    <img src="../assets/img/lunch.jpg">
+    <ion-card-header>
+    <ion-card-title>Lunch</ion-card-title>
+  </ion-card-header>
+  </ion-card>
+  <ion-card (click)="viewfood('Snacks')">
+    <img src="../assets/img/snaks.jpg">
+    <ion-card-header>
+    <ion-card-title>Snacks</ion-card-title>
+  </ion-card-header>
+  </ion-card>
+  <!-- <ion-card *ngFor="let f of food;let i = index">
+    <ion-card (click)="viewafood(f._id)" *ngIf="f.foodstatus==1" >
+    <img src={{f.foodimage}}>
+    <ion-card-header>
+      <ion-card-subtitle>{{f.foodcategory}}</ion-card-subtitle>
+      <ion-card-title>{{f.fooditem}}<br>
+      ₹ {{f.foodprice}}
+
+      </ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  </ion-card> -->
+
+</ion-content>

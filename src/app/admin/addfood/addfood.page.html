@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar color="primary">
+   <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Add Food Items</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card>
+  <form [formGroup]="todo" (ngSubmit)="logForm()">
+    <ion-item>
+      <ion-label position="floating">Food Item</ion-label>
+      <ion-input type="text" formControlName="fooditem"></ion-input>
+    </ion-item>
+   <ion-item>
+    <label for="options">Food Category:</label>
+    <div *ngFor="let option of options">
+        <label>
+            <input type="checkbox"
+            formControlName="foodcategory"
+                   value="{{option.value}}"
+                   [(ngModel)]="option.checked"/>
+            {{option.name}}
+        </label>
+    </div>
+   </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating">Rate</ion-label>
+      <ion-input type="number" formControlName="foodprice"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Stock</ion-label>
+      <ion-input type="number" formControlName="stock"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-text>Upload an image</ion-text>
+      <input type="file" formControlName="foodimage" value="image"  (change)="handleUpload($event)" id="inputFileToLoad">
+    </ion-item>
+    <ion-item>
+      <ion-card>
+        
+      <img src="{{img}}">
+      <ion-card-header>
+      
+      <ion-card-title>{{todo.value.fooditem}}<br>
+      ₹ {{todo.value.foodprice}}
+
+      </ion-card-title>
+    </ion-card-header>
+    </ion-card>
+    </ion-item>
+    
+    <ion-button type="submit" expand="block" color="success" [disabled]="!todo.valid">Submit</ion-button>
+  </form>
+</ion-card>
+
+</ion-content>

@@ -1,0 +1,110 @@
+<ion-app>
+<ion-split-pane contentId="main-content">
+  <!-- Student -->
+ <ion-menu contentId="main-content" type="overlay" *ngIf="student">
+      <ion-content>
+       <ion-toolbar>
+      
+      <img src="assets/img/ootupura.png">
+      </ion-toolbar>
+      
+
+        <ion-list id="inbox-list">
+          <ion-list-header>
+        
+      
+       
+         
+          <ion-avatar>
+           <img src="{{profile_pic}}" onError="src = 'assets/img/profile.png'">
+           </ion-avatar>
+          {{name}}
+          </ion-list-header>
+          <ion-note>{{email}}</ion-note>
+
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of StudentPages; let i = index">
+            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+              <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+            
+          </ion-menu-toggle>
+           
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+
+    <!-- Admin -->
+
+    <ion-menu contentId="main-content" type="overlay" *ngIf="admin">
+      <ion-content>
+       <ion-toolbar>
+      
+      <img src="assets/img/ootupura.png">
+      </ion-toolbar>
+      
+
+        <ion-list id="inbox-list">
+          <ion-list-header>
+        
+      
+       
+         
+          <ion-avatar>
+           <img src="{{profile_pic}}" onError="src = 'assets/img/profile.png'">
+           </ion-avatar>
+          {{name}}
+          </ion-list-header>
+          <ion-note>{{email}}</ion-note>
+
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of AdminPages; let i = index">
+            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'" color="dark"></ion-icon>
+              <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+            
+          </ion-menu-toggle>
+           
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+
+    <!-- staff -->
+    <ion-menu contentId="main-content" type="overlay" *ngIf="staff">
+      <ion-content>
+       <ion-toolbar>
+      
+      <img src="assets/img/ootupura.png">
+      </ion-toolbar>
+      
+
+        <ion-list id="inbox-list">
+          <ion-list-header>
+        
+      
+       
+         
+          <ion-avatar>
+           <img src="{{profile_pic}}" onError="src = 'assets/img/profile.png'">
+           </ion-avatar>
+          {{name}}
+          </ion-list-header>
+          <ion-note>{{email}}</ion-note>
+
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of StaffPages; let i = index">
+            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'" color="dark"></ion-icon>
+              <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+            
+          </ion-menu-toggle>
+           
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+
+
+
+  <ion-router-outlet id="main-content"></ion-router-outlet>
+</ion-split-pane>
+</ion-app>

@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="primary">
+  <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Update Food Item</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card *ngFor="let f of food">
+  <img src="{{f.foodimage}}">
+  <ion-item>
+   {{f.fooditem}}
+  </ion-item>
+  <ion-item>
+    <ion-label>Stock:{{f.stock}}</ion-label>
+   
+  </ion-item>
+  <ion-item>
+    <ion-button (click)="updatestock(f._id)">Update</ion-button>
+  </ion-item>
+</ion-card>
+</ion-content>

@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>View Tables</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card *ngFor="let t of tables">
+  <ion-card (click)="viewbookedtables(t._id)">
+    
+    <img src="{{t.table_image}}" width="100" height="100">
+    <ion-card-header>
+      <ion-card-title>Table Number:{{t.table_number}}</ion-card-title>
+      <ion-card-subtitle>Seating capacity:{{t.seating_capacity}}</ion-card-subtitle>
+      <ion-card-content>
+      {{t.table_position}}
+      </ion-card-content>
+    </ion-card-header>
+  </ion-card>
+</ion-card>
+</ion-content>

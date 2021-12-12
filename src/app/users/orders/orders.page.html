@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar color="primary">
+  <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Orders</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let o of order;index as i">
+    <ion-row style="border-bottom: groove;">
+      <ion-col col-4>
+        <ion-item>
+      <ion-label >Food Item</ion-label>
+      </ion-item>
+    </ion-col>
+    <ion-col col-4>
+      <ion-item>
+      <ion-label >No</ion-label>
+      </ion-item>
+    </ion-col>
+    <ion-col col-4>
+      <ion-item>
+      <ion-label >Rate</ion-label>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+      <ion-card *ngFor="let c of food.reverse();index as i">
+    <ion-row style="border-bottom: groove;">
+      <ion-col col-4>
+        <ion-item>
+      <ion-text >{{c[0].fooditem}}</ion-text>
+    </ion-item>
+    </ion-col>
+    <ion-col col-4>
+      <ion-item>
+      <ion-text >{{count[i]}}</ion-text>
+    </ion-item>
+    </ion-col>
+    <ion-col col-4>
+      <ion-item>
+      <ion-text >{{c[0].foodprice}}</ion-text>
+    </ion-item>
+    </ion-col>
+  </ion-row>
+  
+    
+    </ion-card>
+    <ion-card>
+      <ion-item >
+        <ion-card-title>Total ₹{{total[i]}}<br>
+          Ordered at {{time[i] | date:'dd/MM/yyyy'}} {{time[i] | date:'HH:mm a'}}
+        
+      </ion-card-title></ion-item>
+      </ion-card>
+  </ion-card>
+
+
+</ion-content>

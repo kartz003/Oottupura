@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="primary">
+  <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Orders</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card *ngFor="let o of order.reverse();index as i">
+ <ion-card (click)="vieworder(o._id)">
+   <ion-item>
+    Orderid: {{o._id}}
+   </ion-item>
+   <ion-item>
+    
+    ₹ {{o.totalprice}}
+  </ion-item>
+  <ion-item>
+    Orderd at  {{o.orderdate | date:'dd/MM/yyyy'}} {{o.orderdate| date:'HH:mm a'}}
+  </ion-item>
+ </ion-card>
+</ion-card>
+</ion-content>

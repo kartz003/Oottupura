@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar color="primary">
+  <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let c of cart">
+    
+    <img src={{c.foods[0].foodimage}}>
+  
+  <ion-card-header>
+    <ion-card-subtitle>{{c.foods[0].foodcategory}}</ion-card-subtitle>
+    <ion-card-title>{{c.foods[0].fooditem}}<br>
+    ₹ {{c.foods[0].foodprice}}<br>
+    Number of items {{c.count}}
+
+    </ion-card-title>
+  </ion-card-header>
+  <ion-button expand="block" color="danger" (click)="deletefood(c._id,c.foods[0]._id,c.foods[0].stock,c.count)">Delete from Cart</ion-button>
+</ion-card>
+<ion-card>
+  <ion-card *ngIf="price>0">
+   
+    <ion-item>
+      <ion-label position="floating">Coupon Code</ion-label>
+      <ion-input [(ngModel)]="couponcode"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="coupon">
+      <ion-button (click)="applyCoupon()">Apply Coupon</ion-button>
+    </ion-item>
+  </ion-card>
+<ion-card-header *ngIf="p">
+  <ion-card-title>Total ₹{{price}}
+  <ion-button expand="block" (click)="paynow()">Pay Now</ion-button>
+</ion-card-title></ion-card-header>
+</ion-card>
+
+ 
+
+</ion-content>

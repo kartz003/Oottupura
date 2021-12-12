@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Approve Staff</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card>
+  <ion-card *ngFor="let s of staff">
+    <ion-item>{{s.name}}</ion-item>
+    <ion-item>{{s.phone}}</ion-item>
+    <ion-item>{{s.email}}</ion-item>
+    <ion-item>
+      <img src="{{s.idcard}}">
+
+    </ion-item>
+    <ion-item>
+      <ion-button (click)="approve(s._id)">Approve</ion-button>
+      <ion-button color="danger" (click)="reject(s._id)">Reject</ion-button>
+
+    </ion-item>
+
+
+  </ion-card>
+</ion-card>
+</ion-content>

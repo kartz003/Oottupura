@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Add Tables</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" >
+    <ion-item>
+      <ion-label position="floating"> 
+        Table Number
+      </ion-label>
+      <ion-input formControlName="table_number" type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 
+        Seating Capacity
+      </ion-label>
+      <ion-input formControlName="seating_capacity" type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating"> 
+        Table Position
+      </ion-label>
+      <ion-input formControlName="table_position" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-button type="submit"  expand="block" [disabled]="!form.valid">Add Table</ion-button>
+    </ion-item>
+    <ion-card>
+      <img src="{{table_image}}">
+      <ion-card-header>
+        <ion-card-title>Table Number:{{form.value.table_number}}</ion-card-title>
+        <ion-card-subtitle>Seating capacity:{{form.value.seating_capacity}}</ion-card-subtitle>
+        <ion-card-content>
+         <ion-text>{{form.value.table_position}}</ion-text> 
+        </ion-card-content>
+      </ion-card-header>
+    </ion-card>
+    
+    </form>
+</ion-content>

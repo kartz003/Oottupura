@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary">
+  <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Update Food Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card *ngFor="let f of food">
+  <ion-item>
+    {{f.fooditem}}
+  </ion-item>
+  <ion-item>
+    Stock:{{f.stock}}
+  </ion-item>
+  <ion-item>
+    Food Price:{{f.foodprice}}
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">New Stock</ion-label>
+    <ion-input [(ngModel)]="stock" type="number">
+
+    </ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-button (click)="updatestock(f._id)">Update Stock</ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Price</ion-label>
+    <ion-input [(ngModel)]="price" type="number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-button (click)="updateprice(f._id)">Update Price</ion-button>
+  </ion-item>
+  <ion-item *ngIf="f.foodstatus==1">
+    <ion-button (click)="disablefood(f._id)">Diasable Food</ion-button>
+  </ion-item>
+  <ion-item *ngIf="f.foodstatus==0">
+    <ion-button (click)="activatefood(f._id)">Activate Food</ion-button>
+  </ion-item>
+  <!-- <ion-item>
+    {{f.fooditem}}
+  </ion-item> -->
+  
+</ion-card>
+</ion-content>

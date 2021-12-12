@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Booked Tables</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card *ngFor="let t of table">
+  <ion-item>
+    Table Number:{{t.users[0].table_number}}
+  </ion-item>
+  <ion-item>
+    Psition:{{t.users[0].table_position}}
+  </ion-item>
+  <ion-item>
+    Seating Capacity:{{t.users[0].seating_capacity}}
+  </ion-item>
+  <ion-item>
+   Date: {{t.date}}
+  </ion-item>
+  <ion-item>
+    Time:{{t.time}}
+  </ion-item>
+  <ion-item>
+<ion-button (click)="cancelbooking(t._id)">Cancel Booking</ion-button>
+  </ion-item>
+</ion-card>
+</ion-content>

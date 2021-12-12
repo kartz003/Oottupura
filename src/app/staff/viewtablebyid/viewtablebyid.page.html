@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>View Tables</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card>
+  <ion-card *ngFor="let t of tables">
+    
+    <img src="{{t.table_image}}" width="100" height="100">
+    <ion-card-header>
+      <ion-card-title>Table Number:{{t.table_number}}</ion-card-title>
+      <ion-card-subtitle>Seating capacity:{{t.seating_capacity}}</ion-card-subtitle>
+      <ion-card-content>
+      {{t.table_position}}
+      </ion-card-content>
+    </ion-card-header>
+    <form [formGroup]="form">
+      <ion-item>
+        <ion-label position="floating">Date</ion-label>
+        <ion-datetime display-timezone="utc" formControlName="date"></ion-datetime>
+
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Time</ion-label>
+        <ion-select placeholder="Select One" formControlName="time">
+          <ion-select-option value="Morning">Morning</ion-select-option>
+          <ion-select-option value="Afternoon">Afternoon</ion-select-option>
+          <ion-select-option value="Evening">Evening</ion-select-option>
+
+        </ion-select>
+      </ion-item>
+      <div *ngIf="t.status==1">
+       
+         <ion-text *ngFor="let c of b">
+           
+           <div *ngIf="c.tableid==t._id && c.date==td">
+            
+            <ion-item>
+              This table is booked for today {{c.time}}
+
+            </ion-item>
+
+             
+           </div>
+         </ion-text>
+      </div>
+      <!-- <ion-input type="hidden" value="{{t._id}}" formControlName="tableid"></ion-input> -->
+      <ion-item>
+        <ion-button type="submit" (click)="onSubmit(t._id)"  [disabled]="!form.valid">Book Now</ion-button>
+      </ion-item>
+    </form>
+  </ion-card>
+</ion-card>
+</ion-content>

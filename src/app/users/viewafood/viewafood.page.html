@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="primary">
+  <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>View Food</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card *ngFor="let f of food;let i = index">
+    <ion-card *ngIf="f.foodstatus==1" >
+    <img src={{f.foodimage}}>
+    <ion-card-header>
+      <ion-card-subtitle>{{f.foodcategory}}</ion-card-subtitle>
+      <ion-card-title>{{f.fooditem}}<br>
+      ₹ {{f.foodprice}}
+
+      </ion-card-title>
+    </ion-card-header>
+    <ion-item>
+      {{f.stock}} Stock Only
+    </ion-item>
+    <ion-item *ngIf="f.stock>0">
+      <ion-label>Number of items</ion-label>
+      <ion-input type="number" [(ngModel)]="no"></ion-input>
+    </ion-item>
+    <ion-button expand="block" color="success" (click)="addtocart(f._id,f.stock)" *ngIf="f.stock>0">Add to cart</ion-button>
+    <ion-text color="danger" *ngIf="f.stock==0"><h3>Out of Stock</h3></ion-text>
+  </ion-card>
+
+  </ion-card>
+
+</ion-content>

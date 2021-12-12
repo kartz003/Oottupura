@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Coupons</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card>
+  <form  [formGroup]="form" (ngSubmit)="onSubmit()" >
+<ion-item>
+  <ion-label position="floating">Coupon Code</ion-label>
+  <ion-input formControlName="couponcode"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label position="floating">Discount(in %)</ion-label>
+  <ion-input formControlName="discount_percentage"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label position="floating">Price range(minimum price)</ion-label>
+  <ion-input formControlName="price_range"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label position="floating">Valid From</ion-label>
+  <ion-datetime formControlName="valid_date_from"></ion-datetime>
+</ion-item>
+<ion-item>
+  <ion-label position="floating">To</ion-label>
+  <ion-datetime formControlName="valid_date_to"></ion-datetime>
+</ion-item>
+<ion-item>
+  <ion-button type="submit" [disabled]="!form.valid">Add Coupon</ion-button>
+</ion-item>
+  </form>
+</ion-card>
+<ion-card *ngFor="let c of coupon">
+<ion-item>
+  Coupon code:{{c.couponcode}}
+</ion-item>
+<ion-item>
+  Discount Percentage:{{c.discount_percentage}}
+</ion-item>
+<ion-item>
+ Price range: {{c.price_range}}
+</ion-item>
+<ion-item>
+  Valid from {{c.valid_date_from | date:'dd/MM/yyyy'}} to {{c.valid_date_to | date:'dd/MM/yyyy'}}
+</ion-item>
+<ion-item>
+  <ion-button (click)="delete(c._id)">Delete Coupon</ion-button>
+</ion-item>
+</ion-card>
+</ion-content>
